@@ -1,0 +1,8 @@
+[package]
+name = "shamir_secret_sharing"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sm2 = "=0.13.3"
+rand = "0.8"

@@ -1,2 +1,19 @@
-# secret-sharing
-实现了椭圆曲线（SM2）上的 Shamir 秘密分享、Feldman 可验证秘密分享和 Pedersen 可验证秘密分享。 Implemented Shamir Secret Sharing, Feldman Verifiable Secret Sharing, and Pedersen Verifiable Secret Sharing on elliptic curves (SM2).
+# Shamir Secret Sharing in Rust
+
+This project implements Shamir's Secret Sharing Scheme using the `sm2` crate for finite field arithmetic. The project includes:
+
+- Polynomial generation over finite fields
+- Secret sharing and reconstruction using Lagrange interpolation
+- Secure random number generation
+
+## Usage
+
+To run the project:
+```bash
+cargo run
+```
+
+To run the tests:
+```bash
+cargo test
+```
