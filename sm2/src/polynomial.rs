@@ -44,6 +44,27 @@ impl Polynomial {
         })
     }
 
+    /// 生成多项式系数的 Feldman 承诺
+    ///
+    /// # Arguments
+    ///
+    /// * `g` - 公共生成元
+    ///
+    /// # Returns
+    ///
+    /// * `Vec<ProjectivePoint>` - 包含承诺的列表
+    pub fn feldman_commit(&self, g: ProjectivePoint) -> Vec<ProjectivePoint> {
+        let mut commitments = Vec::new();
+
+        for coeff in &self.coefficients {
+            // 计算 g^coeff
+            let commitment = g * *coeff;
+            commitments.push(commitment);
+        }
+
+        commitments
+    }
+
     /// 生成多项式系数的Pedersen承诺
     ///
     /// # Arguments
@@ -53,7 +74,7 @@ impl Polynomial {
     ///
     /// # Returns
     /// * `(Vec<ProjectivePoint>, Polynomial)` - 包含承诺列表和 blinding 因子的多项式
-    pub fn commit<R: Rng>(
+    pub fn pedersen_commit<R: Rng>(
         &self,
         g: ProjectivePoint,
         h: ProjectivePoint,
