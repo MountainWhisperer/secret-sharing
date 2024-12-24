@@ -1,38 +1,40 @@
-# Secret Sharing in Rust
+# 基于 SM2 的秘密共享
 
-This project implements **Shamir's Secret Sharing (SS)**, **Feldman Verifiable Secret Sharing (VSS), and Pedersen Verifiable Secret Sharing (VSS)** using the `sm2` crate for finite field arithmetic. The project includes:
+本项目实现了基于 `sm2` 国密算法库的秘密共享方案，包括 **Shamir 秘密共享 (Secret Sharing)**、**Feldman 可验证秘密共享 (Verifiable Secret Sharing, VSS)** 和 **Pedersen 可验证秘密共享 (VSS)**。项目包含以下功能：
 
-- Polynomial generation over finite fields
-- Secret sharing and reconstruction using Lagrange interpolation
-- Verifiable Secret Sharing using Feldman's and Pedersen's schemes
+- 基于有限域的多项式生成
+- 使用拉格朗日插值进行秘密共享和重建
+- 使用 Feldman 和 Pedersen 方案的可验证秘密共享
 
-## Usage
+## 使用方法
 
-To run the project:
+运行项目：
+
 ```bash
 cargo run
 ```
 
-To run the tests:
+运行测试：
+
 ```bash
 cargo test
 ```
 
-## Modules
+## 模块
 
 ### `polynomial`
 
-This module provides functionalities for polynomial operations over finite fields. It includes features for creating polynomials, evaluating them at specific points, and generating Feldman and Pedersen commitments for the polynomial coefficients.
+此模块提供了有限域上多项式运算的功能，包括创建多项式、在特定点求值，以及生成多项式系数的 Feldman 承诺和 Pedersen 承诺。
 
 ### `secret_sharing`
 
-This module implements the core logic for Shamir's Secret Sharing, Feldman VSS, and Pedersen VSS. It allows for the generation of shares from a secret, reconstruction of the secret from shares, and verification of shares using commitments.
+此模块实现了 Shamir 秘密共享、Feldman VSS 和 Pedersen VSS 的核心逻辑，支持从秘密生成份额、从份额重建秘密，以及使用承诺验证份额。
 
-## Dependencies
+## 依赖
 
-- `sm2`: For finite field arithmetic and elliptic curve operations.
-- `rand`: For secure random number generation.
+- `sm2`: 用于有限域运算和椭圆曲线操作，实现了中国国家密码管理局 (OSCCA) 发布的 SM2 椭圆曲线公钥密码算法。
+- `rand`: 用于安全的随机数生成。
 
-## License
+## 许可证
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
