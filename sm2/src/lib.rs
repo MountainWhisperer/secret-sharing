@@ -1,2 +1,2 @@
 pub mod polynomial;
-pub mod share;
+pub mod secret_sharing;
