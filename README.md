@@ -24,13 +24,9 @@ cargo test
 
 This module provides functionalities for polynomial operations over finite fields. It includes features for creating polynomials, evaluating them at specific points, and generating Feldman and Pedersen commitments for the polynomial coefficients.
 
-See [polynomial/README.md](sm2/src/polynomial.rs) for more details.
-
 ### `secret_sharing`
 
 This module implements the core logic for Shamir's Secret Sharing, Feldman VSS, and Pedersen VSS. It allows for the generation of shares from a secret, reconstruction of the secret from shares, and verification of shares using commitments.
-
-See [secret_sharing/README.md](sm2/src/secret_sharing.rs) for more details.
 
 ## Dependencies
 
