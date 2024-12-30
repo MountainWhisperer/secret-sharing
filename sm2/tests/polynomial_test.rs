@@ -1,5 +1,5 @@
 use sm2::elliptic_curve::ff::Field;
-use sm2::{ProjectivePoint, Scalar};
+use sm2::{ProjectivePoint, Scalar, elliptic_curve::group::Group};
 use shamir_secret_sharing::polynomial::Polynomial;
 use rand::Rng;
 
@@ -7,7 +7,7 @@ use rand::Rng;
 fn test_pedersen_commitment() {
     let mut rng = rand::thread_rng();
     let g = ProjectivePoint::GENERATOR;
-    let h = ProjectivePoint::GENERATOR * Scalar::random(&mut rng);
+    let h = ProjectivePoint::random(&mut rng);
 
     let secret = Scalar::from(7u64);
     let degree = 2;
@@ -24,8 +24,7 @@ fn test_pedersen_commitment() {
 fn test_pedersen_commitment_with_random_degree() {
     let mut rng = rand::thread_rng();
     let g = ProjectivePoint::GENERATOR;
-    let h = ProjectivePoint::GENERATOR * Scalar::random(&mut rng);
-
+    let h = ProjectivePoint::random(&mut rng);
     // 随机生成多项式阶数
     let max_degree = 10; // 最大多项式阶数
     let num_tests = 100; // 测试次数
